@@ -1,0 +1,33 @@
+<template>
+        <div class="c-container" style="background-color: white; padding:10px;">
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <lightning-progress-indicator current-step={currentStep} type="path" variant="shaded">
+                        <lightning-progress-step label="Customer" value="step-1"></lightning-progress-step>
+                        <lightning-progress-step label="Claim Info" value="step-2"></lightning-progress-step>
+                        <lightning-progress-step label="Involved Parties" value="step-3"></lightning-progress-step>
+                        <lightning-progress-step label="Documents" value="step-4"></lightning-progress-step>
+                        <lightning-progress-step label="Review" value="step-5"></lightning-progress-step>
+                    </lightning-progress-indicator>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <div class="slds-p-bottom_large slds-p-left_large" style="max-width:500px; min-width:400px; display: table; margin: 20px auto;">
+                        <template if:true={wizardStep1}>
+                            <c-claim-entry-contact-info onwizardnext={handleWizardNavigation}></c-claim-entry-contact-info>
+                        </template>
+                        <template if:true={wizardStep2}>
+                            <c-claim-entry-account-info onwizardnext={handleWizardNavigation} contactid={contactId}></c-claim-entry-account-info>
+                        </template>
+                        <template if:true={wizardStep3}>
+                            <c-claim-entry-vehicle onwizardnext={handleWizardNavigation} claimid={claimId}></c-claim-entry-vehicle>
+                        </template>
+                        <template if:true={wizardStep4}>
+                            <c-claim-entry-involved-party onwizardnext={handleWizardNavigation} claimid={claimId}></c-claim-entry-involved-party>
+                        </template>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+</template>

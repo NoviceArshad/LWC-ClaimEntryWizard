@@ -1,0 +1,24 @@
+<template>
+    <lightning-record-edit-form object-api-name="Case" onsubmit={handleSubmit} onsuccess={handleSuccess}>
+        <lightning-messages></lightning-messages>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading"></lightning-spinner>
+        </template>
+        <lightning-combobox name="Sub_Office__c" label="Sub Office" class="Sub_Office__c" placeholder="Sub Office" options={SubOfficeOptions.data} required></lightning-combobox>
+        <lightning-input-field field-name="Client_Claim_Number__c"></lightning-input-field>
+        <lightning-input-field field-name="Loss_Type__c"></lightning-input-field>
+        <lightning-input-field field-name="Loss_Date__c"></lightning-input-field>
+        <lightning-input-field field-name="Type_of_Damage__c"></lightning-input-field>
+        <lightning-input-field field-name="Description"></lightning-input-field>
+        <lightning-input-field field-name="Police_Report_Filed__c"></lightning-input-field>
+        <lightning-input-field field-name="City_INV__c"></lightning-input-field>
+        <lightning-input-field field-name="State_INV__c"></lightning-input-field>
+        <lightning-button
+            class="slds-m-top_small"
+            variant="brand"
+            type="submit"
+            name="update"
+            label="Next">
+        </lightning-button>
+    </lightning-record-edit-form>
+</template>

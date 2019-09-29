@@ -1,0 +1,18 @@
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading"></lightning-spinner>
+    </template>
+    <lightning-input name="FirstName" label="First Name" type="text" class="firstName" ></lightning-input>
+    <lightning-input name="LastName" label="Last Name" type="text" class="lastName" required></lightning-input>
+    <lightning-input name="EmailAddress" label="Email" type="email" class="emailAddress" required></lightning-input>
+    <lightning-input name="Company" label="Company Name" class="companyName" required></lightning-input>
+    <br/>
+    <div style="text-align:right">
+        <lightning-button type="submit"
+                    variant="brand"
+                    label="Next"
+                    onclick={handleSubmit}
+                    class="slds-m-top_medium">
+        </lightning-button>
+    </div>
+</template>
